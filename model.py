@@ -24,4 +24,4 @@ def getProducts():
         print(top_5_products)
         return render_template('results.html',products = top_5_products['name'] , page="result")
     except:
-        return render_template('home.html', products=[] , page="result")
+        return render_template('results.html', products=[] , page="result")

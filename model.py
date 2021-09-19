@@ -2,7 +2,7 @@
 # import libraties
 import pickle
 from flask import Flask,render_template,url_for,request
-
+import pandas as pd
 
 def getProducts():
     try:
@@ -16,11 +16,12 @@ def getProducts():
         reviews = df['reviews_text']
         reviews_transformed = word_vectorizer.transform(reviews.tolist())
         pred_val = model.predict(reviews_transformed)
-        df['sentiment'] = pred_val
-        pro = df.groupby('name')['sentiment'].mean()
+        df['user_sentiment'] = pred_val
+        df['user_sentiment'] = df['user_sentiment'].map({'Positive':0,'Negative':1})
+        pro = df.groupby('name')['user_sentiment'].mean()
         pro = pro.reset_index()
-        top_5_products = pro.sort_values(by='sentiment', ascending=False)[0:5]
+        top_5_products = pro.sort_values(by='user_sentiment', ascending=False)[0:5]
         print(top_5_products)
-        return render_template('home.html',products = top_5_products['name'] , page="result")
+        return render_template('results.html',products = top_5_products['name'] , page="result")
     except:
-        return render_template('home.html', products=[] , page="result")
+        return render_template('results.html', products=[] , page="result")

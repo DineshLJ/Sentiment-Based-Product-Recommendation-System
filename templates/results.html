@@ -11,8 +11,10 @@
 			<h2>Product Recommendation</h2>
 		</div>
 	</header>
-	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Search</b></p>
+	
+{%  if page == 'result' %}
 	<div class="results">
+		<p style="color:blue;font-size:20;text-align: center;"><b>Results for Search</b></p>
 		{% if products|length > 0 %}
 			<table>
 				<tr>
@@ -27,7 +29,8 @@
 		{% else %}
 			<p>No such User exist</p>
 		 {% endif %}
+		<button style="margin-top: 2%"><a href="{{ url_for('home')}}">Go to home</a></button>
 	</div>
-
+	{% endif %}
 </body>
 </html>

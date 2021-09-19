@@ -22,6 +22,6 @@ def getProducts():
         pro = pro.reset_index()
         top_5_products = pro.sort_values(by='user_sentiment', ascending=False)[0:5]
         print(top_5_products)
-        return render_template('home.html',products = top_5_products['name'] , page="result")
+        return render_template('results.html',products = top_5_products['name'] , page="result")
     except:
         return render_template('home.html', products=[] , page="result")

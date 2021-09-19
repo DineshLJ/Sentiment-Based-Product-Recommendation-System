@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+			<h2>Product Recommendation</h2>
+		</div>
+	</header>
+	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Search</b></p>
+	<div class="results">
+		{% if products|length > 0 %}
+			<table>
+				<tr>
+				  <th>Name</th>
+				</tr>
+				{% for pro in products %}
+					<tr>
+						<th> {{ pro }}</th>
+					</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>No such User exist</p>
+		 {% endif %}
+	</div>
+
+</body>
+</html>

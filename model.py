@@ -2,7 +2,7 @@
 # import libraties
 import pickle
 from flask import Flask,render_template,url_for,request
-
+import pandas as pd
 
 def getProducts():
     try:

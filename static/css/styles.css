@@ -1,61 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+@prim: #53e3a6;
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	
+	font-weight: 300;
+}
 body{
-	font:15px/1.5 Arial, Helvetica,sans-serif;
-	padding: 0px;
-	background-color:#f4f3f3;
-	text-align: center;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: white;
+	font-weight: 300;
+	
+	::-webkit-input-placeholder { /* WebKit browsers */
+		font-family: 'Source Sans Pro', sans-serif;
+			color:    white;
+		font-weight: 300;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		font-family: 'Source Sans Pro', sans-serif;
+		 color:    white;
+		 opacity:  1;
+		font-weight: 300;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		font-family: 'Source Sans Pro', sans-serif;
+		 color:    white;
+		 opacity:  1;
+		font-weight: 300;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+		font-family: 'Source Sans Pro', sans-serif;
+		 color:    white;
+		font-weight: 300;
+	}
 }
-
 .container{
-	width:100%;
-	margin: auto;
-	overflow: hidden;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 80px 0;
+	height: 400px;
+	text-align: center;
+	
+	h1{
+		font-size: 40px;
+		transition-duration: 1s;
+		transition-timing-function: ease-in-put;
+		font-weight: 200;
+	}
 }
 
-header{
-	/* background:#35434a; */
-	/* background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 150, 255)); */
-	background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 150, 255, 1), rgba(0, 0, 0, 0.8));
-	/* border-bottom:#448AFF 3px solid; */
-	height:100px;
-	width:100%;
-	padding-top:30px;
-
-}
-
-.main-header{
-			text-align:center;
-			background-color: blue;
-			height:100px;
-			width:100%;
-			margin:0px;
+form{
+	padding: 20px 0;
+	position: relative;
+	z-index: 2;
+	
+	input{
+		display: block;
+		appearance: none;
+		outline: 0;
+		border: 1px solid fade(white, 40%);
+		background-color: fade(white, 20%);
+		width: 250px;
+		
+		border-radius: 3px;
+		padding: 10px 15px;
+		margin: 0 auto 10px auto;
+		display: block;
+		text-align: center;
+		font-size: 18px;
+		
+		color: white;
+		
+		transition-duration: 0.25s;
+		font-weight: 300;
+		
+		&:hover{
+			background-color: fade(white, 40%);
 		}
-#brandname{
-	float:center;
-	text-align:center;
-	font-size:30px;
-	color: #fff;
-	margin: 10px;
-}
-
-header h2{
-	text-align:right;
-	color:rgba(255, 255, 255, 0.1);
-	padding-right: 10px;
-
-}
-
-#input_username{
-	margin-left: 30px;
-}
-
-
-.btn-info {
-	font-weight: bold;
-	background-color: #2196F3;
-	height:40px;
-	width:100px;} /* Blue */
-.btn-info:hover {
-	font-weight: bold;
-	color: #ffffff;
-	/* background-color: #32CD32; */
+		
+		&:focus{
+			background-color: white;
+			width: 300px;
+			
+			color: @prim;
+		}
+	}
+	
+	btn-info{
+		appearance: none;
+		outline: 0;
+		background-color: white;
+		border: 0;
+		padding: 10px 15px;
+		color: @prim;
+		border-radius: 3px;
+		width: 250px;
+		cursor: pointer;
+		font-size: 18px;
+		transition-duration: 0.25s;
+		
+		&:hover{
+			background-color: rgb(245, 247, 249);
+		}
+	}
 }

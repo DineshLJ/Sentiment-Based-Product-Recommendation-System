@@ -6,6 +6,7 @@ import pandas as pd
 
 def getProducts():
     try:
+        username = username.strip()
         user = request.form['username']
         mapping = pickle.load(open('./pickle/dataset_final.csv', 'rb'))
         user_rating = pickle.load(open('./pickle/user_final_rating.pkl', 'rb'))

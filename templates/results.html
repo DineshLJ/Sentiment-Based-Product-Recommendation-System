@@ -33,9 +33,6 @@ h2 {
 }
 
 
-
- 
-
  results {
   display: flex; 
   align-items: center;
@@ -106,9 +103,9 @@ h2.active {
 				{% endfor %}
 			</table>
 		{% else %}
-			<p>No such User exist</p>
+			<p>Please try with another user</p>
 		 {% endif %}
-		<button style="margin-top: 2%"><a href="{{ url_for('home')}}">Go to home</a></button>
+		<button ><a href="{{ url_for('home')}}">Back</a></button>
 	</div>
 	{% endif %}
 </body>

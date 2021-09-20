@@ -6,10 +6,7 @@ import pandas as pd
 
 def getProducts():
     try:
-        #To remove white space
-        username = username.strip()
-        org_username = username
-        username = org_username.lower()
+        
         user = request.form['username']
         #Loading required pickle files
         mapping = pickle.load(open('./pickle/dataset_final.csv', 'rb'))

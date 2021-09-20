@@ -7,12 +7,12 @@ import pandas as pd
 def getProducts():
     try:
         user = request.form['username']
-        mapping = pickle.load(open('./dataset_final.csv', 'rb'))
-        user_rating = pickle.load(open('./user_final_rating.pkl', 'rb'))
-        word_vectorizer = pickle.load(open('./Vectorizer.pkl', 'rb'))
+        mapping = pickle.load(open('./pickle/dataset_final.csv', 'rb'))
+        user_rating = pickle.load(open('./pickle/user_final_rating.pkl', 'rb'))
+        word_vectorizer = pickle.load(open('./pickle/Vectorizer.pkl', 'rb'))
         top_20_products = user_rating.loc[user].sort_values(ascending=False)[0:20]
         df = pd.merge(top_20_products, mapping, left_on='name', right_on='name', how='left')
-        model = pickle.load(open('./final_model.pkl', 'rb'))
+        model = pickle.load(open('./pickle/final_model.pkl', 'rb'))
         reviews = df['reviews_text']
         reviews_transformed = word_vectorizer.transform(reviews.tolist())
         pred_val = model.predict(reviews_transformed)
